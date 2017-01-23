@@ -28,7 +28,7 @@ public class AndroidExecutorService implements Store.ExecutorService {
         });
     }
 
-    public static AndroidExecutorService newAndroidExecutorService() {
+    public static Store.ExecutorService newExecutorService() {
         return new AndroidExecutorService();
     }
 
