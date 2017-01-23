@@ -2,7 +2,7 @@ package com.github.kyleilantzis.yoar.example.app;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.github.kyleilantzis.yoar.example.values.AppState;
+import com.github.kyleilantzis.yoar.example.states.AppState;
 import com.github.kyleilantzis.yoar.redux.Action;
 import com.github.kyleilantzis.yoar.redux.RunnableAction;
 import com.github.kyleilantzis.yoar.redux.Store;

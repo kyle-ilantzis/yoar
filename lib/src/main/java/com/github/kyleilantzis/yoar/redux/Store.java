@@ -15,8 +15,8 @@ public class Store<S> {
     private volatile S mState;
 
     private Store(Reducer<S> reducer, S state, ExecutorService executorService) {
-        this.mReducer = reducer;
-        this.mState = state;
+        mReducer = reducer;
+        mState = state;
         mListeners = new LinkedList<>();
         mExecutorService = executorService;
         mExecutorServiceLock = new Object();
