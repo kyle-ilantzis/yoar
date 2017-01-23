@@ -23,7 +23,7 @@ public class Actions {
 
                 Log.d("login", "logging ...");
 
-                store.dispatch(action(Constants.ACTION_TYPE_LOGIN_REQUEST));
+                store.dispatch(Action.create(Constants.ACTION_TYPE_LOGIN_REQUEST));
 
                 try {
                     Thread.sleep(1000);
@@ -31,15 +31,10 @@ public class Actions {
                     e.printStackTrace();
                 }
 
-                store.dispatch(action(Constants.ACTION_TYPE_LOGIN_FAILURE));
+                store.dispatch(Action.create(Constants.ACTION_TYPE_LOGIN_FAILURE));
 
                 Log.d("login", "logging failed");
             }
         };
-    }
-
-
-    public static Action<Void> action(String type) {
-        return new Action<>(type, null);
     }
 }
