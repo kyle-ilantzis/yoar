@@ -1,5 +1,7 @@
 package com.github.kyleilantzis.yoar.example.actions;
 
+import android.util.Log;
+
 import com.github.kyleilantzis.yoar.example.Constants;
 import com.github.kyleilantzis.yoar.example.states.AppState;
 import com.github.kyleilantzis.yoar.redux.Action;
@@ -19,15 +21,19 @@ public class Actions {
             @Override
             public void run(Store<AppState> store) {
 
+                Log.d("login", "logging ...");
+
                 store.dispatch(action(Constants.ACTION_TYPE_LOGIN_REQUEST));
 
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
                 store.dispatch(action(Constants.ACTION_TYPE_LOGIN_FAILURE));
+
+                Log.d("login", "logging failed");
             }
         };
     }

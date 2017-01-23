@@ -1,5 +1,6 @@
 package com.github.kyleilantzis.yoar.example.screens;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +15,8 @@ import com.github.kyleilantzis.yoar.example.states.LoginState;
 
 public class LoginActivity extends AbstractActivity implements View.OnClickListener {
 
+    Dialog mLoginDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,14 @@ public class LoginActivity extends AbstractActivity implements View.OnClickListe
         setContentView(R.layout.activity_login);
 
         findViewById(R.id.button_login).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mLoginDialog != null) {
+            mLoginDialog.dismiss();
+        }
     }
 
     @Override
@@ -45,7 +56,8 @@ public class LoginActivity extends AbstractActivity implements View.OnClickListe
             AlertDialog.Builder b = new AlertDialog.Builder(this);
             b.setTitle("Login failed");
             b.setMessage("Invalid username/password");
-            b.show();
+            b.setPositiveButton("OK", null);
+            mLoginDialog = b.show();
 
         }
     }
