@@ -26,23 +26,23 @@ public class AbstractActivity extends FragmentActivity implements Store.StateCha
         store.unsubscribe(this);
     }
 
-    public App getYoarApplication() {
-        return (App) getYoarApplication();
+    public App getApp() {
+        return (App) getApplication();
     }
 
     public Store<AppState> getStore() {
-        App app = (App) getYoarApplication();
+        App app = (App) getApp();
         return app.getStore();
     }
 
     public void dispatch(Action<?> action) {
-        App app = (App) getYoarApplication();
+        App app = (App) getApp();
         Store<AppState> store = app.getStore();
         store.dispatch(action);
     }
 
     public void dispatch(RunnableAction<AppState> runnableAction) {
-        App app = (App) getYoarApplication();
+        App app = (App) getApp();
         Store<AppState> store = app.getStore();
         store.dispatch(runnableAction);
     }
